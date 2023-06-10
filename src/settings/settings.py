@@ -17,7 +17,7 @@ env = Env()
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env.str('SECRET_KEY')
 DEBUG = env.bool('DEBUG', default=True)
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+ALLOWED_HOSTS = CSRF_TRUSTED_ORIGINS = env.list('ALLOWED_HOSTS')
 
 
 # Application definition

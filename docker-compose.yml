@@ -3,6 +3,8 @@ services:
   web:
     build:
       context: .
+      args:
+        - DEBUG=${DEBUG:-False}
     env_file:
       - .env
     ports:
@@ -26,7 +28,7 @@ services:
       - "5432"
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "user", "-d", "postgres" ]
+      test: ["CMD", "pg_isready", "-U", "${POSTGRES_USER}", "-d", "postgres" ]
       interval: 10s
       timeout: 5s
       retries: 5
