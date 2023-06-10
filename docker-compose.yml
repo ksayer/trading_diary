@@ -1,0 +1,36 @@
+version: '3.3'
+services:
+  web:
+    build:
+      context: .
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ${STATIC_ROOT}:/opt/src/static/
+      - ${MEDIA_ROOT}:/opt/src/media/
+    entrypoint: ["sh", "/opt/scripts/entrypoint.sh"]
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:13.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - .env
+    expose:
+      - "5432"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "user", "-d", "postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+
+volumes:
+  postgres_data:
