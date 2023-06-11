@@ -132,6 +132,18 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-admin-rangefilter"
+version = "0.10.0"
+description = "django-admin-rangefilter app, add the filter by a custom date range on the admin UI."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+files = [
+    {file = "django-admin-rangefilter-0.10.0.tar.gz", hash = "sha256:6f5b84308b9aa673b47b7626b65bf3a0c5ac08ee20e06983225f748d61689d36"},
+    {file = "django_admin_rangefilter-0.10.0-py2.py3-none-any.whl", hash = "sha256:43fb3ea287e37bb786751f0e869d040e1cb75b867ff3886e3e40c80d8d040a0f"},
+]
+
+[[package]]
 name = "django-filer"
 version = "2.2.4"
 description = "A file management application for django that makes handling of files and images a breeze."
@@ -798,4 +810,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "3ca15aee91da192e660d6392cc81ea4cf25a7326edb12de97c046f4a3e1e68ea"
+content-hash = "722ab5308751fe3517f2167737e132d0e53ab9b4645c9397e452bf39cfbcce28"
