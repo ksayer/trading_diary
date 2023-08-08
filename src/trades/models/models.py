@@ -15,7 +15,7 @@ class Asset(CoreModel):
     market = models.CharField(max_length=6, choices=MarketChoices.choices)
 
     def __str__(self):
-        return '{symbol}'.format(symbol=self.symbol, market=self.market)
+        return '{symbol}'.format(symbol=self.symbol)
 
     class Meta:
         ordering = ['symbol']
@@ -56,8 +56,7 @@ class Trade(CoreModel):
 
     def __str__(self):
         return '{asset}. {open_date}'.format(
-            asset=self.asset,
-            open_date=self.open_date.date()
+            asset=self.asset, open_date=self.open_date.date()
         )
 
 

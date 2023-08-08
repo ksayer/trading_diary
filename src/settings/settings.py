@@ -4,7 +4,6 @@ from pathlib import Path
 import dotenv
 from environs import Env
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 dotenv.load_dotenv(BASE_DIR / "../.env")
@@ -29,14 +28,15 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
+    # my apps
     "admintools",
     "strategies",
     "trades",
-
-    'easy_thumbnails',
-    'filer',
-    'rangefilter',
+    "users",
+    # third party
+    "easy_thumbnails",
+    "filer",
+    "rangefilter",
 ]
 
 MIDDLEWARE = [
@@ -93,9 +93,11 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
+AUTH_USER_MODEL = 'users.User'
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": "django.contrib.auth.password_validation."
+        "UserAttributeSimilarityValidator",
     },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",

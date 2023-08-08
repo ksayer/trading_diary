@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.html import format_html
 from rangefilter.filters import DateRangeFilterBuilder
 
-from trades.models import Trade, Asset, TradeScreenshot
+from trades.models import Asset, Trade, TradeScreenshot
 
 
 class TradeScreenshotInline(admin.TabularInline):
@@ -28,6 +28,7 @@ class TradeAdmin(admin.ModelAdmin):
             tag = f'<span style="color:{color}">{instance.result_points}</span>'
             return format_html(tag)
         return instance.result_points
+
     result_points_colored.short_description = 'result points'
 
 
